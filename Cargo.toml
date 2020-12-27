@@ -4,4 +4,7 @@ version = "0.1.0"
 authors = ["Aaron <32745766+DaemonicWrath@users.noreply.github.com>"]
 edition = "2018"
 
-
+[dependencies]
+logos = "0.11.4"
+rowan = "0.10.0"
+structopt = "0.3.21"
