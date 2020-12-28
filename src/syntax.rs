@@ -1,4 +1,5 @@
 use crate::lexer::TokenKind;
+// a more detailed version of TOkenKind that contains abstract syntax types
 #[derive(Debug, Copy, Clone, PartialEq)]
 #[repr(u16)]
 pub enum SyntaxKind {

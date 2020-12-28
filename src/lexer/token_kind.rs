@@ -2,6 +2,7 @@ use std::fmt;
 
 use logos::Logos;
 
+// Using logos macros we can build a efficient tokenizer to make parsing easier
 #[derive(Debug, Copy, Clone, PartialEq, Logos)]
 pub enum TokenKind {
     #[regex("[ \n]+")]
@@ -35,7 +36,7 @@ impl fmt::Display for TokenKind {
             Self::Multiply => "‘multiply’",
             Self::LParen => "‘(’",
             Self::RParen => "‘)’",
-            Self::Error => "an unrecognized token",
+            Self::Error => "unrecognized token",
         })
     }
 }

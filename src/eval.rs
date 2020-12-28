@@ -8,10 +8,11 @@ enum Operation {
     Multiply,
 }
 
+// Given a valid parse return the result
 pub fn eval(parse: Parse) -> i64 {
     let root = SyntaxNode::new_root(parse.green_node.clone());
 
-    let first_child = root.first_child().unwrap();
+    let first_child = root.first_child().unwrap(); // have to get the first child as the root is the SyntaxKind::Root type
 
     match first_child.kind() {
         SyntaxKind::List => eval_list(&first_child),
@@ -28,7 +29,7 @@ pub fn eval_literal(node: &SyntaxNode) -> i64 {
 }
 
 pub fn eval_list(root: &SyntaxNode) -> i64 {
-    let mut iter = root.children_with_tokens();
+    let mut iter = root.children_with_tokens(); // we need tokens as we don't wrap operations like 'add' or 'multiply' in a abstract type
 
     assert_eq!(iter.next().unwrap().kind(), SyntaxKind::LParen); // first child is always a '('
 
@@ -43,6 +44,7 @@ pub fn eval_list(root: &SyntaxNode) -> i64 {
 }
 
 fn parse_arg(node: &SyntaxNode) -> i64 {
+    assert!(node.kind() == SyntaxKind::List || node.kind() == SyntaxKind::Literal);
     match node.kind() {
         SyntaxKind::List => eval_list(node),
         SyntaxKind::Literal => eval_literal(node),

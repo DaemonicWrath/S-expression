@@ -8,7 +8,7 @@ pub struct Token<'a> {
     pub kind: TokenKind,
     pub text: &'a str,
 }
-
+// Wrapper over logos lexer so we can easily get the text and kind without extra work
 pub struct Lexer<'a> {
     inner: logos::Lexer<'a, TokenKind>,
 }
