@@ -17,7 +17,7 @@ s-expression "(multiply (add 1 2) 3)"
 - only natural numbers are used and not larger than an `i64`
 
 # Building
-Requires the [rustup]((https://rustup.rs/)) tool chain and cargo
+Requires the [rustup](https://rustup.rs/) tool chain and cargo
 
 
 # Libraries used
